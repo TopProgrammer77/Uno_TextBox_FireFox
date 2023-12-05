@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<body>
+	<div id="div">
+		<input type="text" id="input" style="width:100%;height:100%;" value="Drag Me! Drag Me! Drag Me! Drag Me, Please!"/>
+	</div>
+<script>
+
+	var input = document.getElementById("input");
+	input.addEventListener("pointerdown", (e) => {
+		console.log("input:pointerdown");
+	});
+
+	input.addEventListener("pointerup", (e) => {
+		console.log("input:pointerup");
+	});
+
+	input.addEventListener("pointermove", (e) => {
+		console.log("input:pointermove");
+	});
+	
+
+///////////////////////////////////////////////////////////////
+	
+	var div = document.getElementById("div");
+	div.addEventListener("pointerdown", (e) => {
+		console.log("div:pointerdown");
+		div.setPointerCapture(e.pointerId);
+	});
+
+	div.addEventListener("pointerup", (e) => {
+		console.log("div:pointerup");
+		div.releasePointerCapture(e.pointerId);
+	});
+	div.addEventListener("pointermove", (e) => {
+		console.log("div:pointermove");
+	});
+	
+	div.addEventListener("gotpointercapture", (event) => {
+		console.log("div:gotpointercapture");
+	});
+</script>
+
+</body>
+</html>
